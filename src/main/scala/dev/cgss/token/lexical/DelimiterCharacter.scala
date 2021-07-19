@@ -22,7 +22,7 @@ object DelimiterCharacter {
 
   def apply(char: Char): DelimiterCharacter = char match {
     case '`' => BacktickDelimiter()
-    case ''' => SingleQuoteDelimiter()
+    case '\'' => SingleQuoteDelimiter()
     case '"' => DoubleQuoteDelimiter()
     case '.' => DotDelimiter()
     case ';' => SemicolonDelimiter()
