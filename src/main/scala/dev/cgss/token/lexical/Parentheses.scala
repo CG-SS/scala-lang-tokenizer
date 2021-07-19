@@ -18,14 +18,14 @@ final case class CloseCurlyBrackets() extends Parentheses('}')
 
 object Parentheses {
 
-  def apply(char: Char): Parentheses = char match {
-    case '(' => OpenParentheses()
-    case ')' => CloseParentheses()
-    case '[' => OpenSquareBrackets()
-    case ']' => CloseSquareBrackets()
-    case '{' => OpenCurlyBrackets()
-    case '}' => CloseCurlyBrackets()
-    case _ => throw LexicalTokenException(s"Unknown parentheses $char!")
+  def apply(char: Char): Option[Parentheses] = char match {
+    case '(' => Some(OpenParentheses())
+    case ')' => Some(CloseParentheses())
+    case '[' => Some(OpenSquareBrackets())
+    case ']' => Some(CloseSquareBrackets())
+    case '{' => Some(OpenCurlyBrackets())
+    case '}' => Some(CloseCurlyBrackets())
+    case _ => None
   }
 
 }

@@ -20,14 +20,14 @@ final case class CommaDelimiter() extends DelimiterCharacter('`')
 
 object DelimiterCharacter {
 
-  def apply(char: Char): DelimiterCharacter = char match {
-    case '`' => BacktickDelimiter()
-    case '\'' => SingleQuoteDelimiter()
-    case '"' => DoubleQuoteDelimiter()
-    case '.' => DotDelimiter()
-    case ';' => SemicolonDelimiter()
-    case ',' => CommaDelimiter()
-    case _ => throw LexicalTokenException(s"Could not parse DelimiterCharacter $char!")
+  def apply(char: Char): Option[DelimiterCharacter] = char match {
+    case '`' => Some(BacktickDelimiter())
+    case '\'' => Some(SingleQuoteDelimiter())
+    case '"' => Some(DoubleQuoteDelimiter())
+    case '.' => Some(DotDelimiter())
+    case ';' => Some(SemicolonDelimiter())
+    case ',' => Some(CommaDelimiter())
+    case _ => None
   }
 
 }
