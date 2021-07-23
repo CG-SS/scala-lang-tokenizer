@@ -18,7 +18,9 @@ UnicodeEscape ::= ‘\’ ‘u’ {‘u’} hexDigit hexDigit hexDigit hexDigit
 hexDigit      ::= ‘0’ | … | ‘9’ | ‘A’ | … | ‘F’ | ‘a’ | … | ‘f’
 */
 
-trait IdentifierToken
+trait IdentifierToken{
+  def lexicalTokenSeq: Seq[LexicalToken]
+}
 
 object IdentifierToken {
 
