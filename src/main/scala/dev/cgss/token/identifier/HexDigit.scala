@@ -2,7 +2,7 @@ package dev.cgss.token.identifier
 
 import dev.cgss.token.lexical.{Digit, Letter, LexicalToken, LowerCaseLetter, SpecialLetter, UpperCaseLetter}
 
-final case class HexDigit(lexicalTokenSeq: Seq[LexicalToken]) extends IdentifierToken
+final case class HexDigit(digit: LexicalToken) extends IdentifierToken
 
 //hexDigit      ::= ‘0’ | … | ‘9’ | ‘A’ | … | ‘F’ | ‘a’ | … | ‘f’
 object HexDigit {
@@ -23,6 +23,6 @@ object HexDigit {
     }
   }
 
-  private def valid(lexicalToken: LexicalToken) = Some(new HexDigit(Seq(lexicalToken)))
+  private def valid(lexicalToken: LexicalToken) = Some(new HexDigit(lexicalToken))
 
 }
